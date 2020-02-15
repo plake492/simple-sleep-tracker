@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import moment from "moment";
+import "./App.css";
 
 function App() {
+  const [time, setTime] = useState(null);
+  const [woke, setWoke] = useState(null);
+
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      setTime(moment().format("h:mm:ss a"));
+    }, 1000);
+
+    return () => window.clearInterval(id);
+  }, []);
+
+  if (!time) {
+    return <p>Loading...</p>;
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>{time}</h1>
+      <button onClick={() => setWoke(time)}>Woke up at</button>
+      {!woke ? null : <h3>Woke up at: {woke}</h3>}
     </div>
   );
 }
