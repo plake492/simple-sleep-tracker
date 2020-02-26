@@ -4,7 +4,6 @@ import moment from "moment";
 
 function App() {
   const [time, setTime] = useState(null);
-  const [woke, setWoke] = useState(null);
 
   useEffect(() => {
     const id = window.setInterval(() => {
@@ -19,13 +18,8 @@ function App() {
   }
   return (
     <div className="container">
-      <h1>{time}</h1>
-      <button
-        onClick={(() => setWoke(time), () => API.postTime({ time }))}
-      >
-        Woke up at
-      </button>
-      {!woke ? null : <h3>Woke up at: {woke}</h3>}
+      <p>{time}</p>
+      <button onClick={() => API.postTime({ time })}>Woke up at</button>
     </div>
   );
 }

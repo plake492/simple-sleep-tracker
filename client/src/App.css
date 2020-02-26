@@ -16,20 +16,21 @@ a {
 }
 
 .container {
-  margin: 20px auto;
+  margin: 20px;
 }
 
 .nav-container {
-  height: 10vh;
+  height: 40px;
   background-color: rgb(20, 141, 221);
 }
 
 .btn {
+  margin: 5px;
   padding: 10px;
-  background-color: rgb(32, 81, 114);
+  background-color: rgb(124, 55, 214);
 }
 
 .btn:hover {
   padding: 10px;
-  background-color: rgba(32, 81, 114, 0.192);
+  background-color: rgba(124, 55, 214, 0.511);
 }
