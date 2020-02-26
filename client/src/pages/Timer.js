@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import API from "../utils/API";
 import moment from "moment";
 
 function App() {
@@ -19,7 +20,11 @@ function App() {
   return (
     <div className="container">
       <h1>{time}</h1>
-      <button onClick={() => setWoke(time)}>Woke up at</button>
+      <button
+        onClick={(() => setWoke(time), () => API.postTime({ time }))}
+      >
+        Woke up at
+      </button>
       {!woke ? null : <h3>Woke up at: {woke}</h3>}
     </div>
   );
