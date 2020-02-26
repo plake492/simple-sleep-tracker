@@ -3,11 +3,34 @@
   margin: 0;
   padding: 0;
 }
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.4;
+  margin: 0px auto;
+  max-width: 1200px;
 }
+
 a {
   color: #333;
   text-decoration: none;
+}
+
+.container {
+  margin: 20px auto;
+}
+
+.nav-container {
+  height: 10vh;
+  background-color: rgb(20, 141, 221);
+}
+
+.btn {
+  padding: 10px;
+  background-color: rgb(32, 81, 114);
+}
+
+.btn:hover {
+  padding: 10px;
+  background-color: rgba(32, 81, 114, 0.192);
 }

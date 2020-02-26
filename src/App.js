@@ -1,28 +1,21 @@
-import React, { useState, useEffect } from "react";
-import moment from "moment";
+import React from "react";
+import Timer from "./pages/Timer";
+import TimeData from "./pages/TimeData";
+import Nav from "./components/Nav";
 import "./App.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
-  const [time, setTime] = useState(null);
-  const [woke, setWoke] = useState(null);
-
-  useEffect(() => {
-    const id = window.setInterval(() => {
-      setTime(moment().format("h:mm:ss a"));
-    }, 1000);
-
-    return () => window.clearInterval(id);
-  }, []);
-
-  if (!time) {
-    return <p>Loading...</p>;
-  }
   return (
-    <div>
-      <h1>{time}</h1>
-      <button onClick={() => setWoke(time)}>Woke up at</button>
-      {!woke ? null : <h3>Woke up at: {woke}</h3>}
-    </div>
+    <Router>
+      <React.Fragment>
+        <Nav />
+        <Switch>
+          <Route exact path="/" component={Timer} />
+          <Route exact path="/data" component={TimeData} />
+        </Switch>
+      </React.Fragment>
+    </Router>
   );
 }
 
